@@ -9,8 +9,10 @@ void PrintVector(const std::vector<int>& vec){
     std::cout << i << std::endl;
   }
 }
+
 int main(){
   int num_of_days = 0;
+  int sum_of_temp = 0;
 
   std::cin >> num_of_days ;
 
@@ -19,9 +21,24 @@ int main(){
   for(int i = 0; i < num_of_days; i++){
     int temp_of_day = 0;
     std::cin >> temp_of_day;
+    sum_of_temp += temp_of_day;
     imput_v[i] = temp_of_day;
   }
-  PrintVector(imput_v);
+  int ev_temp = sum_of_temp/num_of_days;
+  int num_of_warm = 0;
+
+  for(int i = 0; i < num_of_days; i++){
+    if (imput_v[i] > ev_temp){
+      num_of_warm++;
+    }
+  }
+  std::cout << num_of_warm << '\n';
+  for(int i = 0; i < num_of_days; i++){
+    if (imput_v[i] > ev_temp){
+      std::cout << i << " ";
+    }
+  }
+  // PrintVector(imput_v);
 
   return 0;
 }
